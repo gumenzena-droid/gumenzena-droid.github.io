@@ -1849,7 +1849,7 @@
 
       <div class="krd-video-box">
         
-        <img id="krd-park-img" class="krd-bg-video" src="a6c7fb44-18d1-4c50-b416-02b03eed724e.png" onerror="this.src='krasnodar_park.png'" alt="Парк Галицкого и стадион Краснодар" style="object-fit: cover;">
+        <img id="krd-park-img" class="krd-bg-video" src="krasnodar_park.png" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Park_near_the_stadium_in_Krasnodar_%283%29.jpg/1280px-Park_near_the_stadium_in_Krasnodar_%283%29.jpg'" alt="Парк Галицкого и стадион Краснодар" style="object-fit: cover; filter: brightness(0.8) contrast(1.1);">
         <!-- High-Definition Night Aerial View of Krasnodar Stadium & Galitsky Park -->
         <img 
           class="krd-bg-video" 
@@ -1942,9 +1942,9 @@
 
             <div class="plan-box-container">
               <img id="case-img-1" 
-                   src="image_bb8901.png" 
-                   onerror="this.src='apartment_1.png'" 
-                   alt="Студия 26.5 м² — кухня-гостиная" 
+                   src="apartment_1.png" 
+                   onerror="this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80'" 
+                   alt="Студия 26.5 м² — готовый интерьер" 
                    class="case-main-img" 
                    onclick="openPlanModal(this.src, 'Студия 26.5 м² (№18)')">
               <span class="plan-badge-overlay" id="badge-1">Студия 26.5 м² • Готовый интерьер</span>
@@ -1998,9 +1998,9 @@
 
             <div class="plan-box-container">
               <img id="case-img-2" 
-                   src="image_bb891f.png" 
-                   onerror="this.src='apartment_2.png'" 
-                   alt="Евро-2к 37.14 м² — мастер-спальня" 
+                   src="apartment_2.png" 
+                   onerror="this.src='https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1000&q=80'" 
+                   alt="Евро-2к 37.14 м² — кухня-гостиная" 
                    class="case-main-img" 
                    onclick="openPlanModal(this.src, 'Евро-2к 37.14 м² (№226)')">
               <span class="plan-badge-overlay" id="badge-2">Евро-2к 37.14 м² • Спальня</span>
@@ -2054,9 +2054,9 @@
 
             <div class="plan-box-container">
               <img id="case-img-3" 
-                   src="image_bb8900.png" 
-                   onerror="this.src='apartment_3.png'" 
-                   alt="Евро-3к 53.7 м² — кухня-гостиная" 
+                   src="apartment_3.png" 
+                   onerror="this.src='https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1000&q=80'" 
+                   alt="Евро-3к 53.7 м² — спальня" 
                    class="case-main-img" 
                    onclick="openPlanModal(this.src, 'Евро-3к 53.7 м² (№302)')">
               <span class="plan-badge-overlay" id="badge-3">Евро-3к 53.7 м² • Кухня</span>
@@ -2264,16 +2264,16 @@
     // Switch between real interior photo and architectural floor plan
     const visualData = {
       1: {
-        photo: { src: 'image_bb8901.png', fallback: 'apartment_1.png', badge: 'Студия 26.5 м² • Готовый интерьер' },
-        plan: { src: 'photo_studio.jpg', fallback: 'photo_2026-09-04_17-15-44.jpg', badge: 'Схема планировки • Студия №18' }
+        photo: { src: 'apartment_1.png', fallback: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80', badge: 'Студия 26.5 м² • Готовый интерьер' },
+        plan: { src: 'photo_studio.jpg', fallback: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80', badge: 'Схема планировки • Студия №18' }
       },
       2: {
-        photo: { src: 'image_bb891f.png', fallback: 'apartment_2.png', badge: 'Евро-2к 37.14 м² • Спальня' },
-        plan: { src: 'photo_1k.jpg', fallback: 'photo_2026-09-04_17-15-33.jpg', badge: 'Схема планировки • Евро-2к №226' }
+        photo: { src: 'apartment_2.png', fallback: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1000&q=80', badge: 'Евро-2к 37.14 м² • Кухня-гостиная' },
+        plan: { src: 'photo_1k.jpg', fallback: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1000&q=80', badge: 'Схема планировки • Евро-2к №226' }
       },
       3: {
-        photo: { src: 'image_bb8900.png', fallback: 'apartment_3.png', badge: 'Евро-3к 53.7 м² • Кухня' },
-        plan: { src: 'photo_2k.jpg', fallback: 'photo_2026-09-04_17-15-37.jpg', badge: 'Схема планировки • Евро-3к №302' }
+        photo: { src: 'apartment_3.png', fallback: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1000&q=80', badge: 'Евро-3к 53.7 м² • Спальня' },
+        plan: { src: 'photo_2k.jpg', fallback: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80', badge: 'Схема планировки • Евро-3к №302' }
       }
     };
 
