@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta name="yandex-verification" content="fc5ede2657cc3258" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Семейная ипотека 6% в Краснодаре и РФ: Стратегия «Квартира-копилка» и пассивный доход</title>
@@ -1408,6 +1409,71 @@
       color: #fff;
     }
 
+  
+    /* Dual Switcher: Real Photo vs Floor Plan Blueprint */
+    .case-visual-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+    }
+    .cv-tab-btn {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .cv-tab-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .cv-tab-btn.active {
+      background: rgba(0, 240, 255, 0.15);
+      color: var(--accent-lime);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+    }
+    .plan-box-container {
+      position: relative;
+      background: #11141b;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      min-height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-subtle);
+    }
+    .case-main-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .case-main-img:hover {
+      transform: scale(1.02);
+    }
+    .case-main-img.blueprint-mode {
+      object-fit: contain;
+      background: #ffffff;
+      padding: 10px;
+    }
+
   </style>
 </head>
 <body>
@@ -1789,7 +1855,7 @@
           <span>📷</span> Заменить фото парка
           <input type="file" accept="image/*" style="display: none;" onchange="loadCustomImage(event, 'krd-park-img', 'krd_photo')">
         </label>
-        <img id="krd-park-img" class="krd-bg-video" src="krasnodar_park.png" alt="Парк Галицкого и стадион Краснодар" style="object-fit: cover;">
+        <img id="krd-park-img" class="krd-bg-video" src="a6c7fb44-18d1-4c50-b416-02b03eed724e.png" onerror="this.src='krasnodar_park.png'" alt="Парк Галицкого и стадион Краснодар" style="object-fit: cover;">
         <!-- High-Definition Night Aerial View of Krasnodar Stadium & Galitsky Park -->
         <img 
           class="krd-bg-video" 
@@ -1854,11 +1920,14 @@
     <!-- ==========================================================
        SECTION: REAL APARTMENT CASES & ACTUAL PHOTOS
        ========================================================== -->
+    <!-- ==========================================================
+       SECTION: REAL APARTMENT CASES (PHOTOS & BLUEPRINTS)
+       ========================================================== -->
   <section class="container" id="cases" style="padding: 90px 24px 70px;">
     <div class="section-header">
-      <div class="tag-pill">Реальные планировки и интерьеры</div>
+      <div class="tag-pill">Реальные фото интерьеров и планировки</div>
       <h2>Реальные примеры квартир и планировок в Краснодаре</h2>
-      <p>Оцените эргономику готовых интерьеров, финансовые расчеты окупаемости по ставке 6% и варианты входа от 0 ₽.</p>
+      <p>Переключайтесь между реальными фотографиями готового дизайнерского ремонта и чертежами планировок от застройщика.</p>
     </div>
 
     <div class="cases-grid">
@@ -1867,20 +1936,31 @@
       <div class="case-card">
         <div class="case-body">
           <div>
-            <!-- Real Apartment Photo Container with Instant Uploader -->
-            <div class="plan-img-container">
-              <img id="img-apt-1" src="apartment_1.png" alt="Интерьер студии 26.5 м²" class="plan-real-img" onclick="openPlanModal(this.src, 'Студия 26.5 м²')">
-              <span class="plan-badge-overlay">Студия 26.5 м² • Готовый ремонт</span>
-              <label class="btn-card-upload" title="Загрузить ваше фото студии">
-                <span>📷</span> Заменить фото
-                <input type="file" accept="image/*" style="display: none;" onchange="loadCustomImage(event, 'img-apt-1', 'case_photo_1')">
-              </label>
+            <!-- Tabs: Photo vs Blueprint -->
+            <div class="case-visual-tabs">
+              <button type="button" class="cv-tab-btn active" onclick="switchVisualTab(1, 'photo', this)">
+                <span>📸</span> Фото квартиры
+              </button>
+              <button type="button" class="cv-tab-btn" onclick="switchVisualTab(1, 'plan', this)">
+                <span>📐</span> Планировка №18
+              </button>
+            </div>
+
+            <div class="plan-box-container">
+              <img id="case-img-1" 
+                   src="image_bb8901.png" 
+                   onerror="this.src='apartment_1.png'" 
+                   alt="Студия 26.5 м² — кухня-гостиная" 
+                   class="case-main-img" 
+                   onclick="openPlanModal(this.src, 'Студия 26.5 м² (№18)')">
+              <span class="plan-badge-overlay" id="badge-1">Студия 26.5 м² • Готовый интерьер</span>
+              <div class="plan-zoom-hint">🔍 Нажмите для зума</div>
             </div>
 
             <span class="case-badge">Быстрый вход • Только материнский капитал</span>
             <div class="case-title">Студия 26.5 м² (жилая комната 21.9 м²)</div>
             <div class="case-desc">
-              Эргономичная студия правильной геометрии. Совмещенный санузел 4.6 м², ниша под гардероб, просторная кухонная зона. Хит у студентов и молодых специалистов.
+              Эргономичная студия правильной геометрии. Совмещенный санузел 4.6 м², ниша под гардероб, кухонная зона с островом. Хит у студентов и молодых специалистов.
             </div>
             
             <div class="case-metrics">
@@ -1912,14 +1992,25 @@
       <div class="case-card">
         <div class="case-body">
           <div>
-            <!-- Real Apartment Photo Container with Instant Uploader -->
-            <div class="plan-img-container">
-              <img id="img-apt-2" src="apartment_2.png" alt="Интерьер Евро-2к спальня" class="plan-real-img" onclick="openPlanModal(this.src, 'Евро-2к 37.14 м²')">
-              <span class="plan-badge-overlay">Евро-2к 37.14 м² • Готовый ремонт</span>
-              <label class="btn-card-upload" title="Загрузить ваше фото спальни">
-                <span>📷</span> Заменить фото
-                <input type="file" accept="image/*" style="display: none;" onchange="loadCustomImage(event, 'img-apt-2', 'case_photo_2')">
-              </label>
+            <!-- Tabs: Photo vs Blueprint -->
+            <div class="case-visual-tabs">
+              <button type="button" class="cv-tab-btn active" onclick="switchVisualTab(2, 'photo', this)">
+                <span>📸</span> Фото квартиры
+              </button>
+              <button type="button" class="cv-tab-btn" onclick="switchVisualTab(2, 'plan', this)">
+                <span>📐</span> Планировка №226
+              </button>
+            </div>
+
+            <div class="plan-box-container">
+              <img id="case-img-2" 
+                   src="image_bb891f.png" 
+                   onerror="this.src='apartment_2.png'" 
+                   alt="Евро-2к 37.14 м² — мастер-спальня" 
+                   class="case-main-img" 
+                   onclick="openPlanModal(this.src, 'Евро-2к 37.14 м² (№226)')">
+              <span class="plan-badge-overlay" id="badge-2">Евро-2к 37.14 м² • Спальня</span>
+              <div class="plan-zoom-hint">🔍 Нажмите для зума</div>
             </div>
 
             <span class="case-badge">Максимальная ликвидность • Семейный формат</span>
@@ -1957,14 +2048,25 @@
       <div class="case-card">
         <div class="case-body">
           <div>
-            <!-- Real Apartment Photo Container with Instant Uploader -->
-            <div class="plan-img-container">
-              <img id="img-apt-3" src="apartment_3.png" alt="Интерьер Евро-3к кухня" class="plan-real-img" onclick="openPlanModal(this.src, 'Евро-3к 53.7 м²')">
-              <span class="plan-badge-overlay">Евро-3к 53.7 м² • Готовый ремонт</span>
-              <label class="btn-card-upload" title="Загрузить ваше фото кухни">
-                <span>📷</span> Заменить фото
-                <input type="file" accept="image/*" style="display: none;" onchange="loadCustomImage(event, 'img-apt-3', 'case_photo_3')">
-              </label>
+            <!-- Tabs: Photo vs Blueprint -->
+            <div class="case-visual-tabs">
+              <button type="button" class="cv-tab-btn active" onclick="switchVisualTab(3, 'photo', this)">
+                <span>📸</span> Фото квартиры
+              </button>
+              <button type="button" class="cv-tab-btn" onclick="switchVisualTab(3, 'plan', this)">
+                <span>📐</span> Планировка №302
+              </button>
+            </div>
+
+            <div class="plan-box-container">
+              <img id="case-img-3" 
+                   src="image_bb8900.png" 
+                   onerror="this.src='apartment_3.png'" 
+                   alt="Евро-3к 53.7 м² — кухня-гостиная" 
+                   class="case-main-img" 
+                   onclick="openPlanModal(this.src, 'Евро-3к 53.7 м² (№302)')">
+              <span class="plan-badge-overlay" id="badge-3">Евро-3к 53.7 м² • Кухня</span>
+              <div class="plan-zoom-hint">🔍 Нажмите для зума</div>
             </div>
 
             <span class="case-badge">Капитал для ребенка • 2 изолированные комнаты</span>
@@ -2016,6 +2118,7 @@
       </div>
     </div>
   </section>
+
 
 
   <!-- Lightbox Modal for Floor Plans -->
@@ -2163,6 +2266,48 @@
 
     window.addEventListener('scroll', updateScrollyProgress, { passive: true });
     window.addEventListener('resize', updateScrollyProgress);
+
+    // Switch between real interior photo and architectural floor plan
+    const visualData = {
+      1: {
+        photo: { src: 'image_bb8901.png', fallback: 'apartment_1.png', badge: 'Студия 26.5 м² • Готовый интерьер' },
+        plan: { src: 'photo_studio.jpg', fallback: 'photo_2026-09-04_17-15-44.jpg', badge: 'Схема планировки • Студия №18' }
+      },
+      2: {
+        photo: { src: 'image_bb891f.png', fallback: 'apartment_2.png', badge: 'Евро-2к 37.14 м² • Спальня' },
+        plan: { src: 'photo_1k.jpg', fallback: 'photo_2026-09-04_17-15-33.jpg', badge: 'Схема планировки • Евро-2к №226' }
+      },
+      3: {
+        photo: { src: 'image_bb8900.png', fallback: 'apartment_3.png', badge: 'Евро-3к 53.7 м² • Кухня' },
+        plan: { src: 'photo_2k.jpg', fallback: 'photo_2026-09-04_17-15-37.jpg', badge: 'Схема планировки • Евро-3к №302' }
+      }
+    };
+
+    function switchVisualTab(caseNum, type, btn) {
+      const container = btn.closest('.case-body');
+      container.querySelectorAll('.cv-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const imgEl = document.getElementById('case-img-' + caseNum);
+      const badgeEl = document.getElementById('badge-1' ? ('badge-' + caseNum) : null);
+      const data = visualData[caseNum][type];
+
+      if (imgEl && data) {
+        imgEl.src = data.src;
+        imgEl.onerror = function() {
+          this.src = data.fallback;
+        };
+        if (type === 'plan') {
+          imgEl.classList.add('blueprint-mode');
+        } else {
+          imgEl.classList.remove('blueprint-mode');
+        }
+      }
+      if (badgeEl && data) {
+        badgeEl.textContent = data.badge;
+      }
+    }
+
 
     // --- SMART LOCAL STORAGE PHOTO LOADER ---
     function loadCustomImage(e, imgElementId, storageKey) {
